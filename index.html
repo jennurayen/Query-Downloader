@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Downloader</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/" class="tital">Query Downloader</a>
+      <div class="power">Powered by: <span>Jennu Rayen</span></div>
+    </nav>
+    <div class="main">
+      <div class="container">
+        <input
+          class="query"
+          type="number"
+          id="query"
+          placeholder="Enter Query Number"
+          oninput="this.value = this.value.slice(0, 10)"
+        />
+        <input
+          oninput="this.value = this.value.slice(0, 4)"
+          class="year"
+          type="number"
+          id="year"
+          value="2025"
+          placeholder="Enter Year"
+        />
+        <button class="go-link" onclick="openLinkInNewTab()">Open Query</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          This is a simple tool to open query links for the West Bengal
+          Registration Department. It does not collect any personal data.
+        </p>
+        <a href="privacy.html">Privacy and policy</a>
+    </footer>
+    <script>
+      function openLinkInNewTab() {
+        const query = document.getElementById("query").value.trim();
+        const year = document.getElementById("year").value.trim();
+        let url = `https://wbregistration.gov.in/(S(klk2eaunffmmybxv5dtdzqal))/Rpt_Viewer.aspx?query_no=${query}&query_year=${year}&Ph_code=N&Report_type=AssessementSlip`;
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.click();
+      }
+    </script>
+  </body>
+</html>
